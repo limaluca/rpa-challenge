@@ -1,5 +1,5 @@
 from sys import pycache_prefix
-import pyautogui;
+import pyautogui as gui; #🥺
 import time
 import selenium;
 from selenium import webdriver;
@@ -8,12 +8,13 @@ from selenium.webdriver.common.keys import Keys;
 from selenium.webdriver.support.ui import Select;
 from selenium.webdriver.common.by import By;
 
-# chrome_options = webdriver.ChromeOptions(); 
-# chrome_options.add_experimental_option("excludeSwitches", ['enable-automation']);
 
+
+chrome_options = webdriver.ChromeOptions(); 
+chrome_options.add_experimental_option("excludeSwitches", ['enable-automation']);
 
 driver = webdriver.Chrome('./chromedriver')
-driver = webdriver.Chrome()
+driver = webdriver.Chrome(options=chrome_options)
 
 #Window configuration
 driver.get("https://marcelstein.com/elochallenge/starttest.php?token=ce3e75ea4b1681dec7ed81ab2e836599")
@@ -29,9 +30,35 @@ ordersNumber = []
 for x in range(2,102):
     ordersNumber.append(driver.find_element_by_css_selector('body > main > div:nth-child(3) > div > div > div:nth-child(%s) > div:nth-child(1)' % x).get_attribute('innerText'))
 
-for order in ordersNumber:
-    print(order)
 
+
+
+# #From now on, the X should be the same and the Y will be increased
+x = 205
+y = 443
+pedidoPosition = (x,y)
+
+# rastreamentoPosition = (927,448)
+# situacaoPosition = (1141,448)
+# #Pretenting
+# appLotePosition = (1101,525)
+# appButtonLote = (10101, 572)
+
+
+gui.moveTo(pedidoPosition)
+gui.click()
+for i in range(1,50):
+    time.sleep(0.3)
+    gui.scroll(-1)
+    if(i%5==0):
+        time.sleep(0.5)
+        x= x + 2
+        y = y - 10
+        pedidoPosition = (x,y)
+        gui.moveTo(pedidoPosition)
+
+
+  
 
 
 
@@ -40,11 +67,11 @@ for order in ordersNumber:
     # print(driver.find_element_by_css_selector('body > main > div:nth-child(3) > div > div > div:nth-child(4) > div:nth-child(4)').tag_name)
 
 # tab to the application oppened 
-    # pyautogui.keyDown('command')
-    # pyautogui.press('tab')
+    # gui.keyDown('command')
+    # gui.press('tab')
     # time.sleep(1)
-    # pyautogui.press('tab')
-    # pyautogui.keyUp('command')
+    # gui.press('tab')
+    # gui.keyUp('command')
 
 
 
@@ -70,37 +97,18 @@ for order in ordersNumber:
 
 
 
-# pyautogui.hotkey("command", "tab")
-# pyautogui.moveTo(appLotePosition, duration=1)
-# pyautogui.click()
-# pyautogui.keyDown('command')
-# pyautogui.keyDown('v')
-# pyautogui.keyUp('command')
-# pyautogui.keyUp('v')
+# gui.hotkey("command", "tab")
+# gui.moveTo(appLotePosition, duration=1)
+# gui.click()
+# gui.keyDown('command')
+# gui.keyDown('v')
+# gui.keyUp('command')
+# gui.keyUp('v')
 
 
 
-# # pyautogui.moveTo(pedidoPosition, duration=1)
-# # pyautogui.moveTo(rastreamentoPosition, duration=1)command
-# # pyautogui.moveTo(situacaoPosition, duration=1)
+# # gui.moveTo(pedidoPosition, duration=1)
+# # gui.moveTo(rastreamentoPosition, duration=1)command
+# # gui.moveTo(situacaoPosition, duration=1)
 
 
-
-# #From now on, the X should be the same and the Y will be increased
-pedidoPosition = (235,448)
-# rastreamentoPosition = (927,448)
-# situacaoPosition = (1141,448)
-# #Pretenting
-# appLotePosition = (1101,525)
-# appButtonLote = (10101, 572)
-# dir = '/System/Applications/Stickies'
-
-
-
-
-
-
-pyautogui.doubleClick(pedidoPosition)
-pyautogui.keyDown('command')
-pyautogui.press('c')
-pyautogui.keyUp('command')
