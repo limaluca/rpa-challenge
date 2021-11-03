@@ -31,84 +31,15 @@ for x in range(2,102):
     ordersNumber.append(driver.find_element_by_css_selector('body > main > div:nth-child(3) > div > div > div:nth-child(%s) > div:nth-child(1)' % x).get_attribute('innerText'))
 
 
+rows = []
+for x in range(2,102):
+   rows.append(driver.find_element_by_xpath('/html/body/main/div[3]/div/div/div[%s]' % x))
+
+#teste 
+for x in range(2,10):
+    element = Select(driver.find_element_by_xpath('/html/body/main/div[3]/div/div/div[%s]/div[6]/select' % x)).select_by_visible_text("Postado")
+    gui.moveTo(element.location())
 
 
-# #From now on, the X should be the same and the Y will be increased
-x = 205
-y = 443
-pedidoPosition = (x,y)
-
-# rastreamentoPosition = (927,448)
-# situacaoPosition = (1141,448)
-# #Pretenting
-# appLotePosition = (1101,525)
-# appButtonLote = (10101, 572)
-
-
-gui.moveTo(pedidoPosition)
-gui.click()
-for i in range(1,50):
-    time.sleep(0.3)
-    gui.scroll(-1)
-    if(i%5==0):
-        time.sleep(0.5)
-        x= x + 2
-        y = y - 10
-        pedidoPosition = (x,y)
-        gui.moveTo(pedidoPosition)
-
-
-  
-
-
-
-#Pegando o nome da tag para um controle posterior
-    # print(driver.find_element_by_css_selector('body > main > div:nth-child(3) > div > div > div:nth-child(54) > div:nth-child(5) > input').tag_name)
-    # print(driver.find_element_by_css_selector('body > main > div:nth-child(3) > div > div > div:nth-child(4) > div:nth-child(4)').tag_name)
-
-# tab to the application oppened 
-    # gui.keyDown('command')
-    # gui.press('tab')
-    # time.sleep(1)
-    # gui.press('tab')
-    # gui.keyUp('command')
-
-
-
-
-
-    # Order
-#body > main > div:nth-child(3) > div > div > div:nth-child(2) > div:nth-child(1)
-#body > main > div:nth-child(3) > div > div > div:nth-child(101) > div:nth-child(1)
-
-    # Tracking
-#body > main > div:nth-child(3) > div > div > div:nth-child(2) > div:nth-child(5) > input
-#body > main > div:nth-child(3) > div > div > div:nth-child(3) > div:nth-child(5) > input
-#body > main > div:nth-child(3) > div > div > div:nth-child(54) > div:nth-child(5) > input
-
-        #Tracking preenchido
-    #body > main > div:nth-child(3) > div > div > div:nth-child(4) > div:nth-child(4) Rastreamento
-    #body > main > div:nth-child(3) > div > div > div:nth-child(4) > div:nth-child(1) Numero do pedido       
-    
-    
-    # Status
-#body > main > div:nth-child(3) > div > div > div:nth-child(2) > div:nth-child(6) > select
-#body > main > div:nth-child(3) > div > div > div:nth-child(101) > div:nth-child(6) > select
-
-
-
-# gui.hotkey("command", "tab")
-# gui.moveTo(appLotePosition, duration=1)
-# gui.click()
-# gui.keyDown('command')
-# gui.keyDown('v')
-# gui.keyUp('command')
-# gui.keyUp('v')
-
-
-
-# # gui.moveTo(pedidoPosition, duration=1)
-# # gui.moveTo(rastreamentoPosition, duration=1)command
-# # gui.moveTo(situacaoPosition, duration=1)
 
 
