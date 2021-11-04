@@ -1,5 +1,5 @@
 
-#Desafio RPA challenge
+**Desafio RPA challenge**
  A automação realiza os seguintes passos:
 
     Informa um token de acesso;
@@ -22,7 +22,7 @@ Possível problema:
 Como não consegui utilizar a função locateOnScreen da biblioteca pyautogui, tive que trabalhar com as posições dos elementos em tela. Ou seja: O perfeito funcionamento da automação está diretamente ligada ao tamanho da tela de quem fizer o uso desse RPA. Com isso, deve-se atualizar manualmente a posição de cada elemento (que estão salvos em variaveis) a fim de manter o funcionamento da automação.
 
 
-#Instalação:
+**Instalação:**
 
 Para a leitura de texto, foi utilizado o textify: 
 https://www.techspot.com/downloads/6891-textify.html
